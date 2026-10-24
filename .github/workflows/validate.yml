@@ -9,7 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: normlanguage/setup-norm@main
+      - name: Install Norm CLI
+        shell: bash
+        run: |
+          mkdir -p .norm-dist
+          gh release download --repo normlanguage/Norm --pattern '*linux-x64.tar.gz' --dir .norm-dist
+          tar -xzf .norm-dist/*.tar.gz -C .norm-dist
+          cli="$(find .norm-dist -type f -name norm -perm -111 | head -n 1)"
+          test -n "$cli"
+          echo "NORM_CLI=$PWD/$cli" >> "$GITHUB_ENV"
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Generate and validate Skill
-        shell: pwsh
-        run: ./scripts/validate-package.ps1
+        shell: bash
+        run: "$NORM_CLI docs src --skill SKILL.md --strict"
