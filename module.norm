@@ -1,0 +1,3 @@
+Module module() {
+  return module(name: "example_package", version: 1, exports: [])
+}
