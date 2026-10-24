@@ -25,11 +25,11 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p build/api
           if "$NORM_CLI" docs --help | grep -q -- '--skill'; then
             "$NORM_CLI" docs . --output build/api --skill SKILL.md --strict
           else
             "$NORM_CLI" docs . --output build/api --strict
           fi
           test -s SKILL.md
+
 
