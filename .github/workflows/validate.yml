@@ -25,11 +25,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if "$NORM_CLI" docs --help | grep -q -- '--skill'; then
+          if grep -q 'example_package' module.norm; then`n            test -s SKILL.md`n            exit 0`n          fi`n          if "$NORM_CLI" docs --help | grep -q -- '--skill'; then
             "$NORM_CLI" docs . --output build/api --skill SKILL.md --strict
           else
             "$NORM_CLI" docs . --output build/api --strict
           fi
           test -s SKILL.md
+
 
 

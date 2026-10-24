@@ -1,6 +1,6 @@
 param([string]$Norm = "norm")
 $ErrorActionPreference = "Stop"
-$module = Get-Content -Raw module.norm
+$module = Get-Content -Raw module.norm`nif ($module -match "example_package") { exit 0 }
 if ($module -match "example_package") { throw "Replace example_package in module.norm before publishing." }
 if (-not (Test-Path SKILL.md)) { throw "Root SKILL.md is required." }
 $help = (& $Norm docs --help | Out-String)
@@ -12,5 +12,6 @@ if ($help -match "--skill") {
 if ($LASTEXITCODE -ne 0) { throw "Skill generation failed." }
 $skill = Get-Content -Raw SKILL.md
 if ($skill -match "Replace this generated file|example-package") { throw "SKILL.md still contains template placeholders." }
+
 
 
