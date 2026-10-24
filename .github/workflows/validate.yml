@@ -32,3 +32,4 @@ jobs:
             "$NORM_CLI" docs . --output build/api --strict
           fi
           test -s SKILL.md
+

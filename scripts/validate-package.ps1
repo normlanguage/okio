@@ -13,3 +13,4 @@ if ($help -match "--skill") {
 if ($LASTEXITCODE -ne 0) { throw "Skill generation failed." }
 $skill = Get-Content -Raw SKILL.md
 if ($skill -match "Replace this generated file|example-package") { throw "SKILL.md still contains template placeholders." }
+
