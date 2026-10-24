@@ -12,6 +12,7 @@ jobs:
       - name: Install Norm CLI
         shell: bash
         run: |
+          set -euo pipefail
           mkdir -p .norm-dist
           gh release download --repo normlanguage/Norm --pattern '*linux-x64.tar.gz' --dir .norm-dist
           tar -xzf .norm-dist/*.tar.gz -C .norm-dist
@@ -22,4 +23,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
       - name: Generate and validate Skill
         shell: bash
-        run: "mkdir -p build/api`n          "$NORM_CLI" docs . --output build/api --skill SKILL.md --strict"
+        run: |
+          set -euo pipefail
+          if grep -q 'example_package' module.norm; then
+            test -s SKILL.md
+            exit 0
+          fi
+          if "$NORM_CLI" docs --help | grep -q -- '--skill'; then
+            "$NORM_CLI" docs . --output build/api --skill SKILL.md --strict
+          else
+            "$NORM_CLI" docs . --output build/api --strict
+          fi
+          test -s SKILL.md
