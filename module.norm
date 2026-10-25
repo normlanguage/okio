@@ -1,3 +1,15 @@
 Module module() {
-  return module(name: "example_package", version: 1, exports: [])
+  return module(
+    name: "okio",
+    version: 1,
+    binding: jarBinding(
+      target: mavenJar(
+        group: "com.squareup.okio",
+        artifact: "okio-jvm",
+        version: "3.18.1",
+        resolution: sha256("b97b640557a650d15411f2be29aef558c4e422a83653cb18ba494311dbed18be")
+      ),
+      api: []
+    )
+  )
 }
