@@ -7,7 +7,7 @@ Module module() {
         group: "com.squareup.okio",
         artifact: "okio-jvm",
         version: "3.18.1",
-        resolution: sha256("b97b640557a650d15411f2be29aef558c4e422a83653cb18ba494311dbed18be")
+        resolution: sha256("7c35e9fa4e88c090b174ff6490833ac2f51a15baf73f0be62ebc29c93a83eaf6")
       ),
       api: []
     )
