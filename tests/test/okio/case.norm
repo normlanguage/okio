@@ -1,0 +1,12 @@
+package okio.test.okio
+
+import okio.okioMarker
+import std.testing.Test
+import std.testing.expectedOutputLines
+
+@Test()
+Void markerIsCallable() {
+  okioMarker()
+  printLine(true)
+  expectedOutputLines(["true"])
+}

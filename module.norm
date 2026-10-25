@@ -1,7 +1,8 @@
 Module module() {
   return module(
     name: "okio",
-    version: 1,
+    version: 3,
+    exports: ["ByteString"],
     binding: jarBinding(
       target: mavenJar(
         group: "com.squareup.okio",
@@ -9,7 +10,7 @@ Module module() {
         version: "3.18.1",
         resolution: sha256("7c35e9fa4e88c090b174ff6490833ac2f51a15baf73f0be62ebc29c93a83eaf6")
       ),
-      api: []
+      api: [jarType(name: "okio.ByteString", alias: "ByteString", members: ["utf8"])]
     )
   )
 }
