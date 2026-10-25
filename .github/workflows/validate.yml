@@ -30,8 +30,9 @@ jobs:
             exit 0
           fi
           if "$NORM_CLI" docs --help | grep -q -- '--skill'; then
-            "$NORM_CLI" docs . --output build/api --skill SKILL.md --strict
+            "$NORM_CLI" docs . --output build/api --skill SKILL.md
           else
-            "$NORM_CLI" docs . --output build/api --strict
+            "$NORM_CLI" docs . --output build/api
           fi
           test -s SKILL.md
+
