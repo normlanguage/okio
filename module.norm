@@ -1,7 +1,7 @@
 Module module() {
   return module(
     name: "okio",
-    version: 3,
+    version: 4,
     exports: ["ByteString"],
     binding: jarBinding(
       target: mavenJar(
