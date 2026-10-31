@@ -4,8 +4,7 @@ on:
   pull_request:
   push:
     branches: [main]
-    tags:
-      - 'v*'
+    tags: ['v*']
   workflow_dispatch:
 
 permissions:
@@ -15,6 +14,6 @@ permissions:
 
 jobs:
   package:
-    uses: normlanguage/registry/.github/workflows/package.yml@92f1345e5cb6722b6b726f3afed5cd2aa08754df
+    uses: normlanguage/registry/.github/workflows/package.yml@90b4d247fa4f5f2b620924d2cbc0553e89843700
     with:
-      norm-version: 0.27.12
+      norm-version: 0.27.23

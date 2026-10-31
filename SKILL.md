@@ -1,10 +1,10 @@
 # okio Skill
 
-Use this skill to work with Norm module `okio` version 3. Use only declarations listed below.
+Use this skill to work with Norm module `okio` version 4. Use only declarations listed below.
 
 ## `okio`
 
-Source: `okio/ByteString.norm`
+Source: `ByteString.norm`
 
 ### `ByteString`
 

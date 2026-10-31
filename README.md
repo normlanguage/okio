@@ -14,3 +14,4 @@ Replace `example_package` in `module.norm`, add source files under `src/`, and k
 
 The Registry stores only package ownership. API facts and Skill content remain in this repository.
 
+[License](LICENSE)
